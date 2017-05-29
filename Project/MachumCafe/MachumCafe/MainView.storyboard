@@ -181,13 +181,6 @@
                                             <constraint firstAttribute="height" constant="80" id="Mvo-ra-fP1"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4l-oQ-46D">
-                                        <rect key="frame" x="95" y="593" width="30" height="30"/>
-                                        <state key="normal" title="설정"/>
-                                        <connections>
-                                            <action selector="settingButtonAction:" destination="22f-Sh-Inb" eventType="touchUpInside" id="T3L-JM-a67"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjF-21-hLR">
                                         <rect key="frame" x="11" y="318" width="198" height="30"/>
                                         <state key="normal" title="등록제안"/>
@@ -200,6 +193,7 @@
                                         <color key="backgroundColor" red="0.89303042763157892" green="0.89303042763157892" blue="0.89303042763157892" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="Ddc-At-zb0"/>
+                                            <constraint firstAttribute="height" constant="1" id="xSE-Ax-wAV"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQR-Hb-thG">
@@ -219,6 +213,13 @@
                                         <rect key="frame" x="128" y="98" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4l-oQ-46D">
+                                        <rect key="frame" x="95" y="498" width="30" height="30"/>
+                                        <state key="normal" title="설정"/>
+                                        <connections>
+                                            <action selector="settingButtonAction:" destination="22f-Sh-Inb" eventType="touchUpInside" id="T3L-JM-a67"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98852796052631575" green="0.98852796052631575" blue="0.98852796052631575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -229,12 +230,12 @@
                                     <constraint firstItem="IFo-uT-Eph" firstAttribute="centerX" secondItem="sgE-kN-FVW" secondAttribute="centerX" id="GPQ-yC-iaK"/>
                                     <constraint firstItem="UnV-Ed-ZiZ" firstAttribute="top" secondItem="AeL-HH-pjk" secondAttribute="top" id="GqL-iO-5TG"/>
                                     <constraint firstItem="wxC-0C-tcW" firstAttribute="top" secondItem="PQR-Hb-thG" secondAttribute="bottom" constant="98" id="HYG-5e-k8M"/>
-                                    <constraint firstAttribute="bottom" secondItem="c4l-oQ-46D" secondAttribute="bottom" constant="44" id="HhL-0S-BTk"/>
+                                    <constraint firstAttribute="bottom" secondItem="c4l-oQ-46D" secondAttribute="bottom" constant="139" id="HhL-0S-BTk"/>
                                     <constraint firstItem="AjF-21-hLR" firstAttribute="top" secondItem="Grh-pV-gvX" secondAttribute="bottom" constant="8" symbolic="YES" id="KzX-Ja-cxh"/>
                                     <constraint firstItem="c4l-oQ-46D" firstAttribute="centerX" secondItem="sgE-kN-FVW" secondAttribute="centerX" id="Mlh-Dv-1Wi"/>
                                     <constraint firstAttribute="trailing" secondItem="wxC-0C-tcW" secondAttribute="trailing" constant="11" id="Qav-Xs-3vN"/>
                                     <constraint firstItem="UnV-Ed-ZiZ" firstAttribute="width" secondItem="AeL-HH-pjk" secondAttribute="height" multiplier="1:1" id="ZAc-y2-rWU"/>
-                                    <constraint firstItem="c4l-oQ-46D" firstAttribute="top" secondItem="AjF-21-hLR" secondAttribute="bottom" constant="245" id="beI-E8-7TC"/>
+                                    <constraint firstItem="c4l-oQ-46D" firstAttribute="top" secondItem="AjF-21-hLR" secondAttribute="bottom" constant="150" id="beI-E8-7TC"/>
                                     <constraint firstItem="Grh-pV-gvX" firstAttribute="centerX" secondItem="sgE-kN-FVW" secondAttribute="centerX" id="e6L-y1-MmU"/>
                                     <constraint firstAttribute="trailing" secondItem="AjF-21-hLR" secondAttribute="trailing" constant="11" id="hyA-X2-PVe"/>
                                     <constraint firstAttribute="width" constant="220" id="lvK-Py-XNn"/>
@@ -293,7 +294,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="595-Ii-jiZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iiz-BR-TRk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Iiz-BR-TRk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
