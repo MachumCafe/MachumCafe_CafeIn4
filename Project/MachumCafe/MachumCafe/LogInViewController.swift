@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,6 +19,11 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .default
         kakaoLoginButton.addTarget(self, action: #selector(kakaoLogin), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,6 +34,31 @@ class LogInViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
     func kakaoLogin() {
@@ -52,7 +82,7 @@ class LogInViewController: UIViewController {
                         User.sharedInstance.user = user
                         User.sharedInstance.isUser = true
                         if !imageURL.isEmpty {
-                            NetworkUser.getUserImage(imageURL: imageURL) { (imageData) in
+                            NetworkUser.getUserImage(userID: nil, isKakaoImage: user.getUser()["isKakaoImage"] as! Bool, imageURL: imageURL) { (imageData) in
                                 user.setProfileImage(profileImage: imageData)
                                 self.dismiss(animated: true, completion: nil)
                             }
@@ -73,8 +103,8 @@ class LogInViewController: UIViewController {
             if result {
                 User.sharedInstance.user = user
                 User.sharedInstance.isUser = true
-                if !(user.getUser()["imageURL"] as! String).isEmpty {
-                    NetworkUser.getUserImage(imageURL: user.getUser()["imageURL"] as! String) { (imageData) in
+                if !(user.getUser()["profileImageURL"] as! String).isEmpty {
+                    NetworkUser.getUserImage(userID: user.getUser()["id"] as? String, isKakaoImage: user.getUser()["isKakaoImage"] as! Bool, imageURL: user.getUser()["profileImageURL"] as! String) { (imageData) in
                         user.setProfileImage(profileImage: imageData)
                         self.dismiss(animated: true, completion: nil)
                     }
