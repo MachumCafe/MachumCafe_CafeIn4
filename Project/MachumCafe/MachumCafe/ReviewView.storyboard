@@ -42,7 +42,7 @@
                                     <color key="titleColor" red="1" green="0.9831145281" blue="0.97502447059999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="APR-hi-lDa" kind="presentation" identifier="WriteReview" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="8qj-hB-LW6"/>
+                                    <segue destination="APR-hi-lDa" kind="presentation" identifier="WriteReview" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="8qj-hB-LW6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,11 +80,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJt-Aj-H3o">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OS-EJ-gPC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HVW-5a-7Au">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sAm-KF-YkE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wL-M4-buQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="ziE-7g-H2P">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -190,14 +203,14 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="mJt-Aj-H3o" firstAttribute="centerY" secondItem="S7U-0X-8E5" secondAttribute="centerY" id="4nD-ty-LjO"/>
-                            <constraint firstAttribute="topMargin" secondItem="mJt-Aj-H3o" secondAttribute="top" id="Cru-hW-5BA"/>
+                            <constraint firstAttribute="trailing" secondItem="8OS-EJ-gPC" secondAttribute="trailing" id="6Xj-pE-PZL"/>
                             <constraint firstItem="flc-yy-Ewx" firstAttribute="leading" secondItem="S7U-0X-8E5" secondAttribute="leading" constant="25" id="ObH-lt-jsw"/>
                             <constraint firstItem="flc-yy-Ewx" firstAttribute="centerY" secondItem="S7U-0X-8E5" secondAttribute="centerY" id="Usq-pI-msO"/>
-                            <constraint firstItem="mJt-Aj-H3o" firstAttribute="centerX" secondItem="S7U-0X-8E5" secondAttribute="centerX" id="V68-Zu-aZX"/>
+                            <constraint firstItem="8OS-EJ-gPC" firstAttribute="top" secondItem="S7U-0X-8E5" secondAttribute="top" id="XIb-oS-om9"/>
                             <constraint firstAttribute="trailing" secondItem="flc-yy-Ewx" secondAttribute="trailing" constant="25" id="fhh-Rx-hIw"/>
-                            <constraint firstItem="mJt-Aj-H3o" firstAttribute="leading" secondItem="S7U-0X-8E5" secondAttribute="leading" id="gWb-bs-ofL"/>
                             <constraint firstItem="flc-yy-Ewx" firstAttribute="centerX" secondItem="S7U-0X-8E5" secondAttribute="centerX" id="lMj-6w-cHw"/>
+                            <constraint firstItem="8OS-EJ-gPC" firstAttribute="leading" secondItem="S7U-0X-8E5" secondAttribute="leading" id="qY3-T9-cib"/>
+                            <constraint firstItem="zhf-Iq-XRl" firstAttribute="top" secondItem="8OS-EJ-gPC" secondAttribute="bottom" id="rXV-bJ-B63"/>
                         </constraints>
                     </view>
                     <connections>

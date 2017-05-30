@@ -22,6 +22,7 @@ class WriteReviewViewController: UIViewController {
     @IBOutlet weak var reviewview: UIView!
     @IBOutlet weak var writeReview: UITextView!
     @IBOutlet weak var starRating: CosmosView!
+    var effect : UIVisualEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class WriteReviewViewController: UIViewController {
         reviewview.layer.shadowOffset = CGSize(width: 3, height: 3)
         reviewview.layer.shadowRadius = 5
         reviewview.layer.shadowOpacity = 0.4
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
