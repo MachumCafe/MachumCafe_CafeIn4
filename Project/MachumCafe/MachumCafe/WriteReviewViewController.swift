@@ -19,6 +19,7 @@ class WriteReviewViewController: UIViewController {
     var user = User.sharedInstance.user.getUser()
     var cafe = Cafe.sharedInstance.allCafeList[1].getCafe() // 변경 필요
     
+    @IBOutlet weak var reviewview: UIView!
     @IBOutlet weak var writeReview: UITextView!
     @IBOutlet weak var starRating: CosmosView!
     
@@ -26,7 +27,11 @@ class WriteReviewViewController: UIViewController {
         super.viewDidLoad()
         cafeData = currentCafeModel.getCafe()
         starRating.rating = 0
-        print(currentCafeModel.getReviews())
+        reviewview.layer.cornerRadius = 4
+        reviewview.layer.shadowColor = UIColor.init(red: 255, green: 232, blue: 129).cgColor
+        reviewview.layer.shadowOffset = CGSize(width: 3, height: 3)
+        reviewview.layer.shadowRadius = 5
+        reviewview.layer.shadowOpacity = 0.4
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -57,17 +62,12 @@ class WriteReviewViewController: UIViewController {
                 NetworkCafe.postCafeReview(review: review, callback: { (modelReviews, rating) in
                     self.currentCafeModel.setReviews(reviews: modelReviews)
                     self.currentCafeModel.setRating(rating: rating)
-                    print("testetset ", self.currentCafeModel.getCafe()["rating"])
                     self.dismiss(animated: true, completion: nil)
                 })
             } else {
                 UIAlertController().oneButtonAlert(target: self, title: "리뷰 등록실패", message: "로그인 후 이용해주세요.", isHandler: false)
             }
         }
-
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        reviewView.tableView.insertRows(at: [indexPath], with: .automatic)
-        
     }
     
     @IBAction func cancelReview(_ sender: Any) {

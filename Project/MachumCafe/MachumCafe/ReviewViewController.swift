@@ -23,6 +23,7 @@ class ReviewViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         reviews = currentCafeModel.getReviews()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadReviewTable), name: NSNotification.Name(rawValue: "refreshReview"), object: nil)
+        tableView.allowsSelection = false
     }
     
     func reloadReviewTable() {
